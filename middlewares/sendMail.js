@@ -1,11 +1,12 @@
 import { createTransport } from "nodemailer";
 const sendMail = async (email, subject, data) => {
   const transport = createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
+    host: "smtp-relay.brevo.com",
+    secure: false,
+    port: 587,
     auth: {
-      user: process.env.Gmail,
-      pass: process.env.Password,
+      user: "bdj73360@gmail.com",
+      pass: "xsmtpsib-718881bea98666d7a15afd7d8675d76db01b3eafd4c885cf4756e7977f0f56fb-FqPqUcYOdTfeZgNi",
     },
   });
   const html = `<!DOCTYPE html>
@@ -63,3 +64,4 @@ const sendMail = async (email, subject, data) => {
 };
 
 export default sendMail;
+
