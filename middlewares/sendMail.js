@@ -5,8 +5,8 @@ const sendMail = async (email, subject, data) => {
     secure: false,
     port: 587,
     auth: {
-      user: "bdj73360@gmail.com",
-      pass: "xsmtpsib-718881bea98666d7a15afd7d8675d76db01b3eafd4c885cf4756e7977f0f56fb-UUsskwEUixkGISLl",
+      user: process.env.BREVO_USER,
+      pass: process.env.BREVO_PASS,
     },
   });
   const html = `<!DOCTYPE html>
@@ -56,7 +56,7 @@ const sendMail = async (email, subject, data) => {
 </html>
 `;
   await transport.sendMail({
-    from: process.env.Gmail,
+    from: process.env.BREVO_USER,
     to: email,
     subject,
     html,
